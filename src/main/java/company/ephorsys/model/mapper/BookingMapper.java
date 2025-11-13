@@ -1,19 +1,19 @@
 package company.ephorsys.model.mapper;
 
-import company.ephorsys.model.dto.RegistrationDto;
-import company.ephorsys.model.entity.RegistrationEntity;
+import company.ephorsys.model.dto.BookingDto;
+import company.ephorsys.model.entity.BookingEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class RegistrationMapper {
+public class BookingMapper {
 
-    public static RegistrationEntity toEntity(RegistrationDto dto) {
+    public static BookingEntity toEntity(BookingDto dto) {
         if (dto == null) return null;
 
-        RegistrationEntity registration = new RegistrationEntity();
+        BookingEntity registration = new BookingEntity();
         registration.setId(dto.getId());
         registration.setName(dto.getName());
         registration.setEmail(dto.getEmail());
@@ -23,10 +23,10 @@ public class RegistrationMapper {
         return registration;
     }
 
-    public static RegistrationDto toDto(RegistrationEntity registration) {
+    public static BookingDto toDto(BookingEntity registration) {
         if (registration == null) return null;
 
-        RegistrationDto dto = new RegistrationDto();
+        BookingDto dto = new BookingDto();
         dto.setId(registration.getId());
         dto.setName(registration.getName());
         dto.setEmail(registration.getEmail());
@@ -36,11 +36,11 @@ public class RegistrationMapper {
         return dto;
     }
 
-    public static List<RegistrationDto> toDtoList(List<RegistrationEntity> registrations) {
+    public static List<BookingDto> toDtoList(List<BookingEntity> registrations) {
         if (registrations == null) return null;
 
         return registrations.stream()
-                .map(RegistrationMapper::toDto)
+                .map(BookingMapper::toDto)
                 .collect(Collectors.toList());
     }
 }
